@@ -21,7 +21,7 @@ Cypress.Commands.add("logoutConfirmation", () => {
 });
 
 Cypress.Commands.add("confirmErrorNotification", (message) => {
-    cy.get('.update.error .notification')
+    cy.get('.update.error')
       .should('be.visible')
       .within(() => {
         cy.get('h1').should('contain.text', message);
