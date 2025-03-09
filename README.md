@@ -55,9 +55,14 @@
 ## Running the tests
 
 ###### running each spec file in UI/authentication 
+in command line run:
 npx cypress run --spec "cypress/e2e/UI/authentication/login.spec.js"
 npx cypress run --spec "cypress/e2e/UI/authentication/logout.spec.js"
 npx cypress run --spec "cypress/e2e/UI/authentication/password-reset.spec.js"
 
 ###### running in a specific browser (example for chrome) 
-npx cypress run --spec "cypress/e2e/UI/authentication/login.spec.js" --browser chrome
+in command line run: npx cypress run --spec "cypress/e2e/UI/authentication/login.spec.js" --browser chrome
+
+###### running in docker with chrome
+start docker desktop
+in command line run: docker run -it --rm cypress-automation

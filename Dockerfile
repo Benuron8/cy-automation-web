@@ -13,5 +13,5 @@ RUN npm install
 # Copy the rest of the application files to the container
 COPY . .
 
-# Default command to run Cypress tests
-CMD ["npx", "cypress", "run"]
+# Default command to run Cypress tests in headed mode with Chrome
+CMD ["npx", "cypress", "run", "--headed", "--browser", "chrome"]
