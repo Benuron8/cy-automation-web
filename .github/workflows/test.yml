@@ -19,6 +19,9 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
+        env:
+          CYPRESS_email: ${{ secrets.CYPRESS_EMAIL }}
+          CYPRESS_password: ${{ secrets.CYPRESS_PASSWORD }}
 
       # List Cypress screenshots in logs for debugging
       - name: List Cypress Screenshots
