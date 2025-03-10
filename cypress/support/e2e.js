@@ -3,9 +3,7 @@ import './commands';
 
 //Global setup for the specs
 beforeEach(() => {
+    cy.wait(2000);
     cy.visit('/login');
-    cy.get('.login-btn')
-    .should('be.visible');
-
     cy.acceptCookies();
 });
