@@ -1,5 +1,5 @@
 Cypress.Commands.add("acceptCookies", () => {
-    cy.get('.osano-cm-save').click();
+    cy.contains('button', /Save|Accept/i).click();
 });
 
 Cypress.Commands.add("login", (email, password) => {
