@@ -1,5 +1,5 @@
 Cypress.Commands.add("acceptCookies", () => {
-    cy.contains('button', /Save|Accept/i).click();
+    cy.contains('button', /Save|Accept/i).should(be.visible).click();
 });
 
 Cypress.Commands.add("login", (email, password) => {
