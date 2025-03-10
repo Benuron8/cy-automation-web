@@ -9,9 +9,34 @@ jobs:
       image: cypress/browsers:22.12.0
       options: --user 1001
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Cypress run
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Cypress Tests
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
+
+      # List Cypress screenshots in logs for debugging
+      - name: List Cypress Screenshots
+        if: failure()
+        run: ls -R cypress/screenshots || echo "No screenshots found"
+
+      # Upload Cypress screenshots as artifacts (only if tests fail)
+      - name: Upload Cypress Screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
+      # Upload Cypress videos as artifacts (only if tests fail)
+      - name: Upload Cypress Videos
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos
