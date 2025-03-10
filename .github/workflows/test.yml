@@ -1,53 +1,19 @@
-name: CI/CD for Cypress Project
+name: Cypress Tests using Cypress Docker Image
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: push
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-
+  cypress-run:
+    runs-on: ubuntu-24.04
+    container:
+      image: cypress/browsers:22.12.0
+      options: --user 1001
     steps:
-      # Step 1: Checkout code
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # Step 2: Set up Docker Buildx (for multi-platform builds)
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      # Step 3: Cache Docker layers (optional for faster builds)
-      - name: Cache Docker layers
-        uses: actions/cache@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
         with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-      
-      # Step 4: Build Docker image with Cypress
-      - name: Build Docker image
-        run: |
-          docker build -t cypress-automation .
-
-      # Step 5: Run Cypress tests in Docker container
-      - name: Run Cypress tests in Docker
-        run: |
-          docker run --rm cypress-automation --browser chrome
-
-      # Step 6: Upload Cypress artifacts (optional)
-      - name: Upload Cypress artifacts (screenshots and videos)
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-artifacts
-          path: cypress/screenshots/*
-
-      # Step 7: Clean up (Docker cleanup)
-      - name: Clean up Docker containers
-        run: |
-          docker system prune -f
+          build: npm run build
+          start: npm start
+          browser: chrome
