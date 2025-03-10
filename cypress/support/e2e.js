@@ -5,5 +5,5 @@ import './commands';
 beforeEach(() => {
     cy.visit("https://wave-trial.getbynder.com/login/");
     cy.wait(4000);
-    //cy.acceptCookies();
+    cy.acceptCookies();
 });
