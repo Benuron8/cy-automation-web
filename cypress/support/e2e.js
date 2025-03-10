@@ -5,5 +5,5 @@ import './commands';
 beforeEach(() => {
     console.log('Before Each Hook is running');
     cy.visit("https://wave-trial.getbynder.com/login/");
-    cy.acceptCookies();
+    //cy.acceptCookies();
 });
