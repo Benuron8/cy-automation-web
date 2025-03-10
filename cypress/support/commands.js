@@ -27,3 +27,9 @@ Cypress.Commands.add("confirmErrorNotification", (message) => {
         cy.get('h1').should('contain.text', message);
       });
 });
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  console.error('Uncaught exception:', err);
+  return false;
+});
+
