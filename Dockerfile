@@ -11,7 +11,8 @@ COPY package.json package-lock.json ./
 RUN npm install
 
 # Copy the Cypress configuration file
-COPY cypress.config.js ./
+COPY cypress/ cypress/
+COPY cypress.config.js .
 
 # Copy the rest of the application files to the container
 COPY . .
