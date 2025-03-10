@@ -3,8 +3,7 @@ import './commands';
 
 //Global setup for the specs
 beforeEach(() => {
-    console.log('Before Each Hook is running');
     cy.visit("https://wave-trial.getbynder.com/login/");
-    cy.wait(4000);
-    //cy.acceptCookies();
+    //cy.wait(4000);
+    cy.acceptCookies();
 });
