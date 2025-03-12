@@ -5,6 +5,7 @@ describe("Login Tests", () => {
     });
 
     it("Unsuccessful login using valid email and invalid password", () => {
+        cy.wait(30000)
         cy.login(Cypress.env("email"), 'wrongpassword');
         cy.log("Chegou aqui")
         cy.confirmError("You have entered an incorrect username or password.");
