@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-12T08:57:08.508Z",
+    "end": "2025-03-12T08:57:12.824Z",
+    "duration": 4316,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ff623c38-8320-4cea-9fa7-83a648ddcb6a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\authentication\\password-reset.js",
+      "file": "cypress\\e2e\\UI\\authentication\\password-reset.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7fd0cecf-515d-4fcf-b540-9c526ca176d8",
+          "title": "Password Reset Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Resetting password with wrong captcha",
+              "fullTitle": "Password Reset Tests Resetting password with wrong captcha",
+              "timedOut": null,
+              "duration": 4261,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.lost-password').should('be.visible').click();\ncy.get('#frmForgotLoginBox').should('be.visible');\ncy.get('#forgotPassword').type(Cypress.env(\"email\"));\n//fill a wrong captcha value\ncy.get('.captcha').should('be.visible');\ncy.get('input[name=\"captcha\"]').type('abc123');\ncy.get('#sendPassword').click();\n//cy.get('.generate-new-captcha').should('be.visible');\ncy.confirmErrorNotification(\"The text you\\'ve entered is incorrect\");",
+              "err": {},
+              "uuid": "36929562-3949-4789-bd7c-e88991c94b3d",
+              "parentUUID": "7fd0cecf-515d-4fcf-b540-9c526ca176d8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "36929562-3949-4789-bd7c-e88991c94b3d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4261,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
