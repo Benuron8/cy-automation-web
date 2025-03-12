@@ -9,6 +9,7 @@ module.exports = defineConfig({
     supportFile: 'cypress/support/e2e.{js,jsx,ts,tsx}',
     specPattern: 'cypress/e2e/**/**/*.js',
   },
+  // report
   reporter: 'mochawesome',
   reporterOptions: {
     reportDir: 'cypress/reports',
