@@ -36,7 +36,7 @@ jobs:
           path: cypress/screenshots
 
       - name: Upload Cypress Videos
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
