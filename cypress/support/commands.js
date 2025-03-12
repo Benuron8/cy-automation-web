@@ -1,7 +1,7 @@
 Cypress.Commands.add("login", (email, password) => {
   cy.url().should('include', '/login/', { timeout: 30000 })
-  cy.get('#inputEmail').should('be.visible').type(email);
-  cy.get('#inputPassword').should('be.visible').type(password, { log: false });
+  cy.get('#inputEmail').should('be.visible').and('be.enabled').type(email);
+  cy.get('#inputPassword').should('be.visible').and('be.enabled').type(password, { log: false });
   cy.get('.login-btn').click();
 });
 
