@@ -9,6 +9,7 @@ Cypress.Commands.add("loginConfirmation", () => {
   //confirm login successful
   cy.log(cy.url())
   cy.url().should("include", "/account/dashboard/", { timeout: 30000 });
+  cy.get('.admin-dropdown.profile').should('be.visible')
 });
 
 Cypress.Commands.add("logoutConfirmation", () => {
