@@ -4,14 +4,14 @@ describe("Login Tests", () => {
         cy.loginConfirmation();
     });
 
-    it("Unsuccessful login using invalid email and password", () => {
-        const randomEmail = 'user' + Math.floor(Math.random() * 10000) + '@example.com';
-        cy.login(randomEmail, 'wrongpassword');
+    it("Unsuccessful login using valid email and invalid password", () => {
+        cy.login(Cypress.env("email"), 'wrongpassword');
         cy.confirmError("You have entered an incorrect username or password.");
     });
 
-    it("Unsuccessful login using valid email and invalid password", () => {
-        cy.login(Cypress.env("email"), 'wrongpassword');
+    it("Unsuccessful login using invalid email and password", () => {
+        const randomEmail = 'user' + Math.floor(Math.random() * 10000) + '@example.com';
+        cy.login(randomEmail, 'wrongpassword');
         cy.confirmError("You have entered an incorrect username or password.");
     });
 
