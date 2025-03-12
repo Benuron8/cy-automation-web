@@ -37,7 +37,7 @@ Cypress.Commands.add("confirmError", (message) => {
         });
    // } else {
       cy.log('Error message not found in .update.error');
-    }
+    //}
   //});
 
 });
