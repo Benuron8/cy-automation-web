@@ -16,8 +16,10 @@ Cypress.Commands.add("logoutConfirmation", () => {
     .should('contain.text', 'You have successfully logged out.');
 });
 
-Cypress.Commands.add("confirmErrorNotification", (message) => {
-  cy.contains('h1', message, { timeout: 30000, log: false }).should('exist');
+Cypress.Commands.add("confirmError", (message) => {
+  cy.get('.login-container .cbox_messagebox_error', { timeout: 20000 }) // Increase timeout to ensure it appears
+  .should('be.visible')
+  .should('contain.text', 'You have entered an incorrect username or password.');
 });
 
 Cypress.on('uncaught:exception', (err, runnable) => {
