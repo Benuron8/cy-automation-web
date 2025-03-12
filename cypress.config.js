@@ -17,4 +17,6 @@ module.exports = defineConfig({
     html: true,
     json: true,
   },
+  video: true,  
+  videoUploadOnPasses: false,
 });

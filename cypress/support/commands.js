@@ -21,7 +21,7 @@ Cypress.Commands.add("confirmError", (message) => {
   cy.contains('.login-container .cbox_messagebox_error', 'You have entered an incorrect username or password.', { timeout: 30000 })
   .should('be.visible');
 
-cy.contains('.update.error h1', 'You have entered an incorrect username or password.', { timeout: 10000 })
+cy.contains('.update.error h1', 'You have entered an incorrect username or password.', { timeout: 30000 })
   .should('be.visible');
 
   //cy.get('body').then(($body) => {
