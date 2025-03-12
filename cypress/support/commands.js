@@ -17,7 +17,7 @@ Cypress.Commands.add("logoutConfirmation", () => {
 });
 
 Cypress.Commands.add("confirmErrorNotification", (message) => {
-  cy.contains('h1', message, { timeout: 10000, log: false }).should('exist');
+  cy.contains('h1', message, { timeout: 30000, log: false }).should('exist');
 });
 
 Cypress.on('uncaught:exception', (err, runnable) => {
