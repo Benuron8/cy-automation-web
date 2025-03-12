@@ -1,4 +1,46 @@
 # cy-automation-web
+This project contains end-to-end UI automation tests using Cypress for login/logout funcionalities.
+The tests can be executed locally or inside a Docker container.
+
+Prerequisites:
+Git: To clone the repository.
+Node.js (v14+ recommended): To install dependencies and run Cypress.
+Docker (optional): For running tests in a containerized environment.
+Cypress: For running the tests and generating reports.
+
+git clone https://github.com/Benuron8/cy-automation-web.git
+cd cy-automation-web
+
+### Setup Cypress Environment Variables to run locally
+
+1. Create a `cypress.env.json` to add your `email` and `password` (or any other required environment variables).
+2. Run the tests locally using `npx cypress run` or in Docker using the provided Docker command.
+
+{
+  "email": "your-email@example.com",
+  "password": "your-password"
+}
+
+#### Running locally
+npm install
+
+###### running with Cypress interactive mode (UI):
+npx cypress open
+
+###### running headlessly (without the UI) with chrome:
+npx cypress run --browser chrome
+
+#### Running with Docker
+docker build -t cypress_automation .
+docker run cypress-automation 
+
+#### Running in GitHub Actions
+open the repository in tab Actions and re-run the last job
+
+#### Reports
+Reports are being saved in folder cypress/reports: one html for each test file
+
+###############################################################################
 
 ## Gherkin test cases
 
@@ -51,18 +93,3 @@
     And the user clicks on "Forgot Password"
     When the user enters a valid email address and incorrect captcha code
     Then the system should display an error message "The text you've entered is incorrect"
-
-## Running the tests
-
-###### running each spec file in UI/authentication 
-in command line run:
-npx cypress run --spec "cypress/e2e/UI/authentication/login.spec.js"
-npx cypress run --spec "cypress/e2e/UI/authentication/logout.spec.js"
-npx cypress run --spec "cypress/e2e/UI/authentication/password-reset.spec.js"
-
-###### running in a specific browser (example for chrome) 
-in command line run: npx cypress run --spec "cypress/e2e/UI/authentication/login.spec.js" --browser chrome
-
-###### running in docker with chrome
-start docker desktop
-in command line run: docker run -it --rm cypress-automation

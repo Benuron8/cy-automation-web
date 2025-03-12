@@ -1,0 +1,194 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 2,
+    "pending": 0,
+    "failures": 3,
+    "start": "2025-03-12T12:47:23.377Z",
+    "end": "2025-03-12T12:47:51.303Z",
+    "duration": 27926,
+    "testsRegistered": 5,
+    "passPercent": 40,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f3e46e0f-cd10-4d85-b2c7-93f40404b24b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\authentication\\login.spec.js",
+      "file": "cypress\\e2e\\UI\\authentication\\login.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4740c320-0ab8-4e71-aa44-a737f3d17e71",
+          "title": "Login Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Successful login using valid credentials",
+              "fullTitle": "Login Tests Successful login using valid credentials",
+              "timedOut": null,
+              "duration": 5335,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.log(Cypress.env(\"CYPRESS_email\"));\ncy.log(Cypress.env(\"CYPRESS_password\"));\ncy.login(Cypress.env(\"CYPRESS_email\"), Cypress.env(\"CYPRESS_password\"));\ncy.loginConfirmation();",
+              "err": {
+                "message": "CypressError: `cy.type()` can only accept a string or number. You passed in: `undefined`\n\nhttps://on.cypress.io/type",
+                "estack": "CypressError: `cy.type()` can only accept a string or number. You passed in: `undefined`\n\nhttps://on.cypress.io/type\n    at Context.type (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:114388:68)\n    at wrapped (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:138835:19)\n    at <unknown> (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:144762:15)\n    at tryCatcher (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromiseCtx (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:1583:10)\n    at _drainQueueStep (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:2381:12)\n    at _drainQueue (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:2256:14)",
+                "diff": null
+              },
+              "uuid": "45088b86-e78f-469f-9289-585374f900cd",
+              "parentUUID": "4740c320-0ab8-4e71-aa44-a737f3d17e71",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Unsuccessful login using valid email and invalid password",
+              "fullTitle": "Login Tests Unsuccessful login using valid email and invalid password",
+              "timedOut": null,
+              "duration": 4435,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.login(Cypress.env(\"CYPRESS_email\"), 'wrongpassword');\ncy.confirmErrorNotification(\"You have entered an incorrect username or password.\");",
+              "err": {
+                "message": "CypressError: `cy.type()` can only accept a string or number. You passed in: `undefined`\n\nhttps://on.cypress.io/type",
+                "estack": "CypressError: `cy.type()` can only accept a string or number. You passed in: `undefined`\n\nhttps://on.cypress.io/type\n    at Context.type (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:114388:68)\n    at wrapped (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:138835:19)\n    at <unknown> (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:144762:15)\n    at tryCatcher (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromiseCtx (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:1583:10)\n    at _drainQueueStep (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:2381:12)\n    at _drainQueue (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:2256:14)",
+                "diff": null
+              },
+              "uuid": "1e54671f-55fd-45c8-9867-dca6304c1175",
+              "parentUUID": "4740c320-0ab8-4e71-aa44-a737f3d17e71",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Unsuccessful login using invalid email and password",
+              "fullTitle": "Login Tests Unsuccessful login using invalid email and password",
+              "timedOut": null,
+              "duration": 7246,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const randomEmail = 'user' + Math.floor(Math.random() * 10000) + '@example.com';\ncy.login(randomEmail, 'wrongpassword');\ncy.confirmErrorNotification(\"You have entered an incorrect username or password.\");",
+              "err": {},
+              "uuid": "c3715ffe-c56e-4fd6-893e-347154025506",
+              "parentUUID": "4740c320-0ab8-4e71-aa44-a737f3d17e71",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Unsuccessful login with empty email",
+              "fullTitle": "Login Tests Unsuccessful login with empty email",
+              "timedOut": null,
+              "duration": 5299,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#inputEmail').should('have.value', ''); // Verified that the field is empty\ncy.get('#inputPassword').type(Cypress.env(\"CYPRESS_password\"));\ncy.get('.login-btn').click();\n//verifies that both email and password are cleared (but no error message is returned)\ncy.get('#inputEmail').should('have.value', '');\ncy.get('#inputPassword').should('have.value', '');",
+              "err": {
+                "message": "CypressError: `cy.type()` can only accept a string or number. You passed in: `undefined`\n\nhttps://on.cypress.io/type",
+                "estack": "CypressError: `cy.type()` can only accept a string or number. You passed in: `undefined`\n\nhttps://on.cypress.io/type\n    at Context.type (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:114388:68)\n    at wrapped (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:138835:19)\n    at <unknown> (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:144762:15)\n    at tryCatcher (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromiseCtx (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:1583:10)\n    at _drainQueueStep (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:2381:12)\n    at _drainQueue (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://wave-trial.getbynder.com/__cypress/runner/cypress_runner.js:2256:14)",
+                "diff": null
+              },
+              "uuid": "6530e498-d396-4bac-8a2d-e2c69382af33",
+              "parentUUID": "4740c320-0ab8-4e71-aa44-a737f3d17e71",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Unsuccessful login with empty password",
+              "fullTitle": "Login Tests Unsuccessful login with empty password",
+              "timedOut": null,
+              "duration": 5397,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#inputEmail').type(Cypress.env(\"email\"));\ncy.get('#inputPassword').should('have.value', '');\ncy.get('.login-btn').click();\n//verifies that both email and password are cleared (but no error message is returned)\ncy.get('#inputEmail').should('have.value', '');\ncy.get('#inputPassword').should('have.value', '');",
+              "err": {},
+              "uuid": "0c919dea-f11f-4780-b7e3-ba111130b666",
+              "parentUUID": "4740c320-0ab8-4e71-aa44-a737f3d17e71",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c3715ffe-c56e-4fd6-893e-347154025506",
+            "0c919dea-f11f-4780-b7e3-ba111130b666"
+          ],
+          "failures": [
+            "45088b86-e78f-469f-9289-585374f900cd",
+            "1e54671f-55fd-45c8-9867-dca6304c1175",
+            "6530e498-d396-4bac-8a2d-e2c69382af33"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 27712,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
