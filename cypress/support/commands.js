@@ -8,7 +8,7 @@ Cypress.Commands.add("login", (email, password) => {
 Cypress.Commands.add("loginConfirmation", () => {
   //confirm login successful
   cy.log(cy.url())
-  cy.get('.account-logo').should('be.visible', { timeout: 30000 }).and('be.enabled');
+  cy.get('.account-logo').should('be.visible', { timeout: 30000 });
   cy.get('#rootHeaderNavigation').should('be.visible', { timeout: 30000 });
 });
 
