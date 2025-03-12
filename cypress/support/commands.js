@@ -1,10 +1,3 @@
-Cypress.Commands.add("closeCookies", () => {
-  cy.get('div[role="dialog"][aria-label="Cookie Consent Banner"]')
-  .find('button.osano-cm-dialog__close, button.osano-cm-close, button[data-cypress-el="true"]', { timeout: 10000 })
-  .should('be.visible') 
-  .click();
-});
-
 Cypress.Commands.add("login", (email, password) => {
   cy.get('#inputEmail').type(email);
   cy.get('#inputPassword').type(password, { log: false });

@@ -85,11 +85,3 @@ Reports are being saved in folder cypress/reports: one html for each test file
     When the user hovers over the profile dropdown
     And the user clicks the logout button
     Then the user should be logged out successfully
-
-### Feature: Password Reset
-
-  ###### Scenario: User fails password reset due to incorrect captcha
-    Given the user is on the login page
-    And the user clicks on "Forgot Password"
-    When the user enters a valid email address and incorrect captcha code
-    Then the system should display an error message "The text you've entered is incorrect"
