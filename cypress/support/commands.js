@@ -17,9 +17,17 @@ Cypress.Commands.add("logoutConfirmation", () => {
 });
 
 Cypress.Commands.add("confirmError", (message) => {
-  cy.get('.login-container .cbox_messagebox_error', { timeout: 20000 }) // Increase timeout to ensure it appears
-  .should('be.visible')
-  .should('contain.text', 'You have entered an incorrect username or password.');
+  cy.get('.login-container .cbox_messagebox_error', { timeout: 20000 })
+    .should('be.visible')
+    .should('contain.text', 'You have entered an incorrect username or password.');
+
+  cy.get('.update.error', { timeout: 10000 })
+    .should('exist')
+    .and('be.visible')
+    .within(() => {
+      cy.get('h1').should('contain.text', 'You have entered an incorrect username or password.');
+    });
+
 });
 
 Cypress.on('uncaught:exception', (err, runnable) => {
