@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-12T14:52:20.689Z",
+    "end": "2025-03-12T14:52:37.928Z",
+    "duration": 17239,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "93ab856a-6fa0-486c-88b3-f238307132a0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\authentication\\login.spec.js",
+      "file": "cypress\\e2e\\UI\\authentication\\login.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fb668f86-5dea-4f67-a47b-2b6d88514dbd",
+          "title": "Login Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Successful login using valid credentials",
+              "fullTitle": "Login Tests Successful login using valid credentials",
+              "timedOut": null,
+              "duration": 6906,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login(Cypress.env(\"email\"), Cypress.env(\"password\"));\ncy.loginConfirmation();",
+              "err": {},
+              "uuid": "e5d31ea1-76e8-47fe-9086-695bbfebb1b5",
+              "parentUUID": "fb668f86-5dea-4f67-a47b-2b6d88514dbd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Unsuccessful login using valid email and invalid password",
+              "fullTitle": "Login Tests Unsuccessful login using valid email and invalid password",
+              "timedOut": null,
+              "duration": 3434,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login(Cypress.env(\"email\"), 'wrongpassword');\ncy.confirmErrorNotification(\"You have entered an incorrect username or password.\");",
+              "err": {},
+              "uuid": "7a9c5f13-838d-4e0b-b942-6a96dc6d0099",
+              "parentUUID": "fb668f86-5dea-4f67-a47b-2b6d88514dbd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Unsuccessful login using invalid email and password",
+              "fullTitle": "Login Tests Unsuccessful login using invalid email and password",
+              "timedOut": null,
+              "duration": 2936,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const randomEmail = 'user' + Math.floor(Math.random() * 10000) + '@example.com';\ncy.login(randomEmail, 'wrongpassword');\ncy.confirmErrorNotification(\"You have entered an incorrect username or password.\");",
+              "err": {},
+              "uuid": "ce201825-491a-45a9-97f2-e30d5788dbb3",
+              "parentUUID": "fb668f86-5dea-4f67-a47b-2b6d88514dbd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Unsuccessful login with empty email",
+              "fullTitle": "Login Tests Unsuccessful login with empty email",
+              "timedOut": null,
+              "duration": 1600,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#inputEmail').should('have.value', ''); // Verified that the field is empty\ncy.get('#inputPassword').type(Cypress.env(\"password\"));\ncy.get('.login-btn').click();\n//verifies that both email and password are cleared (but no error message is returned)\ncy.get('#inputEmail').should('have.value', '');\ncy.get('#inputPassword').should('have.value', '');",
+              "err": {},
+              "uuid": "abb058ed-739c-4ad2-aa26-9c96b22f3b74",
+              "parentUUID": "fb668f86-5dea-4f67-a47b-2b6d88514dbd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Unsuccessful login with empty password",
+              "fullTitle": "Login Tests Unsuccessful login with empty password",
+              "timedOut": null,
+              "duration": 1988,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#inputEmail').type(Cypress.env(\"email\"));\ncy.get('#inputPassword').should('have.value', '');\ncy.get('.login-btn').click();\n//verifies that both email and password are cleared (but no error message is returned)\ncy.get('#inputEmail').should('have.value', '');\ncy.get('#inputPassword').should('have.value', '');",
+              "err": {},
+              "uuid": "66cffc6c-8867-4b3a-a9a6-9e803e1601f8",
+              "parentUUID": "fb668f86-5dea-4f67-a47b-2b6d88514dbd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e5d31ea1-76e8-47fe-9086-695bbfebb1b5",
+            "7a9c5f13-838d-4e0b-b942-6a96dc6d0099",
+            "ce201825-491a-45a9-97f2-e30d5788dbb3",
+            "abb058ed-739c-4ad2-aa26-9c96b22f3b74",
+            "66cffc6c-8867-4b3a-a9a6-9e803e1601f8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 16864,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
