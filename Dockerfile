@@ -18,4 +18,4 @@ COPY cypress.config.js .
 COPY . .
 
 # Default command to run Cypress tests in headed mode with Chrome
-CMD ["npx", "cypress", "run"]
+CMD ["npx", "cypress", "run", "--browser", "chrome"]
