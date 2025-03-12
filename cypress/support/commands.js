@@ -1,5 +1,6 @@
 Cypress.Commands.add("acceptCookies", () => {
-  cy.contains('button', /Save|Accept/i, { timeout: 10000 }).should('be.visible').click();
+  if(cy.contains('button', /Save|Accept/i, { timeout: 10000 }).should('be.visible'))
+    cy.contains('button', /Save|Accept/i, { timeout: 10000 }).should('be.visible').click();
 });
 
 Cypress.Commands.add("login", (email, password) => {
