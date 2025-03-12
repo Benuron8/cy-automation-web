@@ -6,20 +6,17 @@ describe("Login Tests", () => {
 
     it("Unsuccessful login using invalid email and password", () => {
         const randomEmail = 'user' + Math.floor(Math.random() * 10000) + '@example.com';
-        cy.log("Chegou aqui")
         cy.login(randomEmail, 'wrongpassword');
         cy.confirmError("You have entered an incorrect username or password.");
     });
 
     it("Unsuccessful login using valid email and invalid password", () => {
-       // cy.wait(30000)
         cy.login(Cypress.env("email"), 'wrongpassword');
-        cy.log("Chegou aqui")
         cy.confirmError("You have entered an incorrect username or password.");
     });
 
     it("Unsuccessful login with empty email", () => {
-        cy.get('#inputEmail').should('have.value', ''); // Verified that the field is empty
+        cy.get('#inputEmail').should('have.value', ''); // Verifies that the field is empty
         cy.get('#inputPassword').type(Cypress.env("password"));
         cy.get('.login-btn').click();
 

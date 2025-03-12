@@ -1,16 +1,3 @@
-Cypress.Commands.add("closeCookies", (email, password) => {
-  cy.get('div[role="dialog"][aria-label="Cookie Consent Banner"]', { timeout: 10000 })
-    .should('be.visible')
-    .within(() => {
-      cy.get('button.osano-cm-dialog__close, button.osano-cm-close')
-        .should('be.visible')
-        .click();
-    });
-
-  // Verify the banner disappears
-  cy.get('div[role="dialog"][aria-label="Cookie Consent Banner"]').should('not.exist');
-});
-
 Cypress.Commands.add("login", (email, password) => {
   cy.url().should('include', '/login/', { timeout: 30000 })
   cy.get('#inputEmail').should('be.visible').click()
@@ -23,8 +10,8 @@ Cypress.Commands.add("login", (email, password) => {
 Cypress.Commands.add("loginConfirmation", () => {
   //confirm login successful
   cy.log(cy.url())
-  cy.get('.account-logo').should('be.visible', { timeout: 30000 });
-  cy.get('#rootHeaderNavigation').should('be.visible', { timeout: 30000 });
+  cy.get('.account-logo').should('be.visible');
+  cy.get('#rootHeaderNavigation').should('be.visible');
 });
 
 Cypress.Commands.add("logoutConfirmation", () => {
@@ -35,10 +22,8 @@ Cypress.Commands.add("logoutConfirmation", () => {
 });
 
 Cypress.Commands.add("confirmError", (message) => {
-  cy.url().should('include', '/login/', { timeout: 30000 })
   cy.contains('.login-container .cbox_messagebox_error', 'You have entered an incorrect username or password.', { timeout: 30000 })
     .should('be.visible');
-
   cy.contains('.update.error h1', 'You have entered an incorrect username or password.', { timeout: 30000 })
     .should('be.visible');
 });
