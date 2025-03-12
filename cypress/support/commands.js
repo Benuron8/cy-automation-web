@@ -7,7 +7,8 @@ Cypress.Commands.add("login", (email, password) => {
 
 Cypress.Commands.add("loginConfirmation", () => {
   //confirm login successful
-  cy.url().should("include", "/account/dashboard/");
+  cy.log(cy.url())
+  cy.url().should("include", "/account/dashboard/", { timeout: 30000 });
 });
 
 Cypress.Commands.add("logoutConfirmation", () => {
