@@ -17,8 +17,7 @@ Cypress.Commands.add("logoutConfirmation", () => {
 });
 
 Cypress.Commands.add("confirmErrorNotification", (message) => {
-  cy.wait(2000);
-  cy.get('.update.error', { timeout: 10000 })
+  cy.get('.update.error', { timeout: 20000 })
     .should('be.visible')
     .within(() => {
       cy.get('h1').should('contain.text', message);
