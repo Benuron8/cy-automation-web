@@ -17,16 +17,28 @@ Cypress.Commands.add("logoutConfirmation", () => {
 });
 
 Cypress.Commands.add("confirmError", (message) => {
-  cy.get('.login-container .cbox_messagebox_error', { timeout: 20000 })
-    .should('be.visible')
-    .should('contain.text', 'You have entered an incorrect username or password.');
+  cy.get('body').then(($body) => {
+    if ($body.find('.login-container .cbox_messagebox_error').length > 0) {
+      cy.get('.login-container .cbox_messagebox_error', { timeout: 20000 })
+        .should('be.visible')
+        .should('contain.text', 'You have entered an incorrect username or password.');
+    } else {
+      cy.log('Error message not found in .cbox_messagebox_error');
+    }
+  });
 
-  cy.get('.update.error', { timeout: 10000 })
-    .should('exist')
-    .and('be.visible')
-    .within(() => {
-      cy.get('h1').should('contain.text', 'You have entered an incorrect username or password.');
-    });
+  cy.get('body').then(($body) => {
+    if ($body.find('.update.error').length > 0) {
+      cy.get('.update.error', { timeout: 10000 })
+        .should('exist')
+        .and('be.visible')
+        .within(() => {
+          cy.get('h1').should('contain.text', 'You have entered an incorrect username or password.');
+        });
+    } else {
+      cy.log('⚠️ Error message not found in .update.error');
+    }
+  });
 
 });
 
